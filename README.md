@@ -78,6 +78,12 @@ To view the html files generated each time a change occurs, follow the next comm
 
 > Note: if you get an error saying make command was not found, you need to install it (using Windows you can download it through chocolatey)
 
+## Overall opinion
+Using this tool in comparison to MkDocs took me longer time, due to requirements installing more things needed, mainly because if you want to use markdown, you need to download more things, and write more code. This is a great downside in case it is preferred to use .md files over .rst
+
+I also haven't been able to deploy this documentation to github pages, according to this [site](https://rantzen.net/2020/02/tutorial--using-sphinx-clever-with-github-pages/), Sphinx and github aren't very compatible, it is possible to deploy this documentation to gh pages, but takes more time and work for you to achieve it, whereas with MkDocs, it just needed one command. 
+
+
 ## References
 * https://www.sphinx-doc.org/en/master/index.html
 * https://www.youtube.com/watch?v=0ROZRNZkPS8
