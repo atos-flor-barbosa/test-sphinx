@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Readme File &#8212; Testing Sphinx  documentation</title>
+    <title>Testing Sphinx &#8212; Testing Sphinx  documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -14,7 +14,8 @@
     <script src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="An h1 header" href="markdown.html" />
+    <link rel="next" title="This is a markdown file" href="markdown_doc.html" />
+    <link rel="prev" title="Welcome to Testing Sphinx’s documentation!" href="index.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -31,8 +32,113 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="readme-file">
-<h1>Readme File<a class="headerlink" href="#readme-file" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="testing-sphinx">
+<h1>Testing Sphinx<a class="headerlink" href="#testing-sphinx" title="Permalink to this headline">¶</a></h1>
+<p>Testing Sphinx for documentation generation.</p>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="windows">
+<h3>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h3>
+<p>It can be installed using Chocolatey, or with pip.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ choco install sphinx
+
+$ pip install -U sphinx
+</pre></div>
+</div>
+</div>
+<div class="section" id="mac">
+<h3>Mac<a class="headerlink" href="#mac" title="Permalink to this headline">¶</a></h3>
+<p>Easiest way would be using homebrew</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ brew install sphinx-doc
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="create-a-new-project">
+<h2>Create a new project<a class="headerlink" href="#create-a-new-project" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="n">project</span>
+<span class="n">cd</span> <span class="n">project</span>
+<span class="n">sphinx</span><span class="o">-</span><span class="n">quickstart</span> <span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="structure">
+<h2>Structure<a class="headerlink" href="#structure" title="Permalink to this headline">¶</a></h2>
+<p>Key files when using Sphinx.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conf</span><span class="o">.</span><span class="n">py</span> <span class="o">-</span> <span class="n">settings</span> <span class="ow">and</span> <span class="n">execute</span> <span class="n">code</span>
+<span class="n">index</span><span class="o">.</span><span class="n">rst</span>
+<span class="n">Makefile</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="words-source-format">
+<h2>Words: Source format<a class="headerlink" href="#words-source-format" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>reStructuredText - no changes needed to conf.py</p></li>
+<li><p>Markdown - you need to use recommonmark</p></li>
+</ul>
+</div>
+<div class="section" id="using-markdown">
+<h2>Using Markdown<a class="headerlink" href="#using-markdown" title="Permalink to this headline">¶</a></h2>
+<p>To be able to add your markdown files on Sphinx, there are several
+requirements</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install recommonmark
+</pre></div>
+</div>
+<p>And add the following lines to your configuration file (conf.py)</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">...</span>
+
+<span class="c1"># -- General configuration ---------------------------------------------------</span>
+
+<span class="c1"># Add any Sphinx extension module names here, as strings. They can be</span>
+<span class="c1"># extensions coming with Sphinx (named &#39;sphinx.ext.*&#39;) or your custom</span>
+<span class="c1"># ones.</span>
+<span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;recommonmark&#39;</span>
+<span class="p">]</span>
+
+<span class="n">source_suffix</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;.rst&#39;</span><span class="p">:</span> <span class="s1">&#39;restructuredtext&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;.txt&#39;</span><span class="p">:</span> <span class="s1">&#39;markdown&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;.md&#39;</span><span class="p">:</span> <span class="s1">&#39;markdown&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="o">...</span>
+</pre></div>
+</div>
+<p>Also, if using tables, you will have to add the following in order for
+Sphinx to render them correctly</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install sphinx-markdown-tables
+</pre></div>
+</div>
+<p>And also add this extension to your config file, having now something
+like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;recommonmark&#39;</span><span class="p">,</span> <span class="s1">&#39;sphinx_markdown_tables&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="run-the-build">
+<h2>Run the build<a class="headerlink" href="#run-the-build" title="Permalink to this headline">¶</a></h2>
+<p>To view the html files generated each time a change occurs, follow the
+next command and after that, open de index.html located inside the
+build/html directory.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ make html
+</pre></div>
+</div>
+<blockquote>
+<div><p>Note: if you get an error saying make command was not found, you need
+to install it (using Windows you can download it through chocolatey)</p>
+</div></blockquote>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.sphinx-doc.org/en/master/index.html">https://www.sphinx-doc.org/en/master/index.html</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=0ROZRNZkPS8">https://www.youtube.com/watch?v=0ROZRNZkPS8</a></p></li>
+<li><p><a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/markdown.html">https://www.sphinx-doc.org/en/master/usage/markdown.html</a></p></li>
+<li><p><a class="reference external" href="https://gist.github.com/johncrossland/9f6f54d559e9136773172aa0a429b46f">https://gist.github.com/johncrossland/9f6f54d559e9136773172aa0a429b46f</a></p></li>
+</ul>
+</div>
 </div>
 
 
@@ -54,17 +160,31 @@
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Testing Sphinx</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#windows">Windows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mac">Mac</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#create-a-new-project">Create a new project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#structure">Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#words-source-format">Words: Source format</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-markdown">Using Markdown</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#run-the-build">Run the build</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="markdown_doc.html">This is a markdown file</a></li>
 <li class="toctree-l1"><a class="reference internal" href="another.html">Another file</a></li>
 <li class="toctree-l1"><a class="reference internal" href="markdown.html">An h1 header</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Readme File</a></li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="markdown.html" title="previous chapter">An h1 header</a></li>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to Testing Sphinx’s documentation!</a></li>
+      <li>Next: <a href="markdown_doc.html" title="next chapter">This is a markdown file</a></li>
   </ul></li>
 </ul>
 </div>

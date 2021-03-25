@@ -10,10 +10,11 @@ Welcome to Testing Sphinx's documentation!
    :maxdepth: 3
    :caption: Contents:
 
+   readme_link
    markdown_doc
    another
    markdown
-   readme_link
+   
 
 
 Indices and tables

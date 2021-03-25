@@ -5,15 +5,18 @@
 
 Welcome to Testing Sphinx's documentation!
 ==========================================
+   
+readme_link
 
 .. toctree::
    :maxdepth: 3
    :caption: Contents:
 
+   readme_link
    markdown_doc
    another
    markdown
-   readme_link
+   
 
 
 Indices and tables
